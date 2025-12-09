@@ -3,6 +3,9 @@ import httpx
 from typing import Dict, List, Optional, Any
 from dotenv import load_dotenv
 from core import database
+import socket
+from unittest.mock import patch
+import contextlib
 
 load_dotenv()
 
@@ -12,10 +15,6 @@ BASE_URL = "https://api.themoviedb.org/3"
 if not TMDB_API_KEY:
     print("Warning: TMDB_API_KEY not found in environment variables.")
 
-# --- DNS Bypass Logic ---
-import socket
-from unittest.mock import patch
-import contextlib
 
 async def get_tmdb_ip() -> Optional[str]:
     """Resolve TMDB IP using Google DNS-over-HTTPS to bypass ISP blocks."""

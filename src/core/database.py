@@ -1,6 +1,5 @@
 import sqlite3
-from datetime import datetime
-from typing import List, Tuple, Dict, Any, Optional
+from typing import List, Tuple, Dict, Any
 
 from pathlib import Path
 
