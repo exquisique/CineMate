@@ -52,7 +52,7 @@ Rating: {details.get('vote_average', 'N/A')}
     return output
 
 # --- Logging & Watchlist (Batch) ---
-async def batch_log_movies(titles: str, rating: int, review: str) -> str:
+async def batch_log_movies(titles: str, rating: float, review: str) -> str:
     results_log = []
     title_list = [t.strip() for t in titles.split(',') if t.strip()]
     

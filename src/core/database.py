@@ -36,7 +36,7 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             movie_id INTEGER,
             media_type TEXT DEFAULT 'movie',
-            rating INTEGER,
+            rating REAL,
             review TEXT,
             watched_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
@@ -78,7 +78,7 @@ def add_movie_cache(movie_id: int, title: str, genre: str, release_date: str, ov
     conn.commit()
     conn.close()
 
-def add_to_history(movie_id: int, rating: int, review: str, media_type: str = "movie"):
+def add_to_history(movie_id: int, rating: float, review: str, media_type: str = "movie"):
     conn = get_connection()
     cursor = conn.cursor()
     # Remove existing entry for this movie to avoid duplicates

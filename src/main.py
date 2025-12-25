@@ -22,7 +22,7 @@ async def get_movie_details(title: str) -> str:
         return f"Error getting details: {e}"
 
 @mcp.tool()
-async def log_movie(titles: str, rating: int, review: str) -> str:
+async def log_movie(titles: str, rating: float, review: str) -> str:
     """Log one or more watched movies/shows (comma-separated). Updates history and removes from watchlist."""
     return await cine_service.batch_log_movies(titles, rating, review)
 
